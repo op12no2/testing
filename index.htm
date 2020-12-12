@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<title>testing sensitivity specificity demonstration</title>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="title"       content="herd immunity demonstration" />
+<meta name="description" content="herd immunity demonstration" />
+<meta name="keywords"    content="infection model, epidemic, coronavirus, covid19, covid" />
+
+<meta name="viewport" content="width=device-width, initial-scale=0.81">
+
+<style>
+body     {margin:0; padding:0; width: 480px;}
+#graphs  {}
+#text    {font: 1.5em serif; color: #666666; padding: 0 20px 0 20px;}
+#text2   {font: 1em   serif; color: #999999; padding: 0 20px 0 20px;}
+.anno    {font: 0.8em   serif; color: #666666; padding: 0 0 0 0;}
+#head1   {font: 1.0em serif; color: #666666; padding: 20px 20px 20px 20px;}
+#head2   {font: 1.5em serif; color: #216a8c; padding: 0 20px 0 20px;}
+#head3   {font: 1.5em serif; color: #1b4f72; padding: 0 20px 0 20px;}
+
+.slidecontainer {
+  width: 350px;
+  margin-left: 60px;
+  margin-top: 20px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 35px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 35px;
+  height: 35px;
+  background: #1b4f72;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 35px;
+  height: 35px;
+  background: #1b4f72;
+  cursor: pointer;
+}
+</style>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+
+<script type="text/javascript" src="testing.js"></script>
+
+</head>
+<body>
+
+<canvas id="graphs" width="480" height="480" style="border: 0px solid"></canvas>
+
+<div id=head1>
+Probability of your test being correct:-
+</div>
+<div id=head2>
+</div>
+</div>
+<div id=head3>
+</div>
+</div>
+
+<form>
+  <div class="slidecontainer">
+    <span class="anno"  id=postext></span><input class="slider" type="range" id="posslider" min=0 max=100 step=1 value=70>
+  </div>
+  <div class="slidecontainer">
+    <span class="anno"  id=senstext></span><input class="slider" type="range" id="sensslider" min=500 max=1000 step=1 value=800>
+  </div>
+  <div class="slidecontainer">
+    <span class="anno" id=spectext></span><input class="slider" type="range" id="specslider" min=500 max=1000 step=1 value=900>
+  </div>
+</form>
+
+<div id="text">
+<br><br>
+<b>Testing Demonstration</b>
+<br><br>
+Use the sliders to set up scenarios.
+<br><br>
+Background rate: An estimate of the fraction of true positives in the population being tested.
+<br><br>
+Sensitivity: The probability of a correct positive result,
+as defined by the manufacturer of the test.
+<br><br>
+Specificity: The probability of a correct negative result,
+as defined by the manufacturer of the test.
+<br><br>
+Top left: True positive.<br>
+Bottom left: False negatives.<br>
+Top right: True negatives.<br>
+Bottom right: False positives.
+<br><br>
+When the background rate is low, specificity must be high to avoid false positives.
+When the background rate is high, sensitivity must be high to avoid false negatives.
+<br><br>
+So for example if you were screening (effectively a random sample) nation-wide for virus 
+antibodies and very few 
+of the population were true positives, you would need near perfect specificity for personally
+meaningful results, not dominated by false positives. Screening with a lower
+specificity can be useful to see trends however. 
+<br><br>
+If you were testing those that presented with symptoms, then by implication the background
+rate would be much higher and specificity could be lower without the results being
+biased towards false positives.
+<br><br>
+If you were testing NHS staff with symptoms and it was thought that the background rate
+was probably quite high, then false negatives would become a problem unless sensitivity was
+very high.
+<br><br>
+Refresh the page to reset and keep up to date with the latest version. 
+This is version <span id="ver">x</span>.
+</div>
+<div id="text2">
+<br><br>
+<a target="_blank" href="http://op12no2.me">more epi toys</a><br>
+<br>
+</div>
+
+</body>
